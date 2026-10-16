@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ชั้นหนังสือของฉัน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@500;700&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>ชั้นหนังสือของฉัน</h1>
+    <p id="count" class="count"></p>
+  </header>
+
+  <main>
+    <form id="book-form" class="panel">
+      <h2 id="form-title">เพิ่มหนังสือ</h2>
+      <input type="hidden" id="book-id">
+      <label>ชื่อหนังสือ
+        <input id="title" required maxlength="200">
+      </label>
+      <label>ผู้เขียน
+        <input id="author" required maxlength="100">
+      </label>
+      <div class="row">
+        <label>สถานะ
+          <select id="status">
+            <option value="want">อยากอ่าน</option>
+            <option value="reading">กำลังอ่าน</option>
+            <option value="done">อ่านจบแล้ว</option>
+          </select>
+        </label>
+        <label>คะแนน
+          <select id="rating">
+            <option value="">ยังไม่ให้คะแนน</option>
+            <option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+      </div>
+      <label>บันทึกสั้นๆ
+        <textarea id="note" rows="3"></textarea>
+      </label>
+      <div class="actions">
+        <button type="submit" id="save-btn">เพิ่มหนังสือ</button>
+        <button type="button" id="cancel-btn" class="ghost" hidden>ยกเลิกการแก้ไข</button>
+      </div>
+      <p id="error" class="error" role="alert"></p>
+    </form>
+
+    <section>
+      <nav class="filters" aria-label="กรองตามสถานะ">
+        <button data-status="" class="active">ทั้งหมด</button>
+        <button data-status="want">อยากอ่าน</button>
+        <button data-status="reading">กำลังอ่าน</button>
+        <button data-status="done">อ่านจบแล้ว</button>
+      </nav>
+      <ul id="list" class="list"></ul>
+      <p id="empty" class="empty" hidden>ยังไม่มีหนังสือในหมวดนี้ เพิ่มเล่มแรกได้จากฟอร์มด้านข้าง</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

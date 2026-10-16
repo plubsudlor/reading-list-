@@ -1,0 +1,13 @@
+{
+  "name": "reading-list",
+  "version": "1.0.0",
+  "description": "Mini Project #2 - Reading List web app (Express + SQLite)",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
